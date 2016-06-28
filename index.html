@@ -1,0 +1,268 @@
+<!--
+	作者：1285803721@qq.com
+	时间：2016-03-12
+	描述：用户操作后台，用于索引管理
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.serializejson.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/subnav.css"/>
+	<link rel="stylesheet" type="text/css" href="css/app.css"/>
+	<body>
+		<div class="container-fluid">
+			
+		
+		<div class="row">
+			<div name="main_nav" class="col-md-2">
+				
+				<div class="col-md-4">	
+					<div class="row">
+					<div class="subnav">
+						<ul>
+							<li class="on"><a href="#">数据</a></li>
+							<li><a href="#">文件</a></li>
+							<li><a href="#">支付</a></li>
+						</ul>
+					</div>
+					</div>
+				</div>
+				<div name="main_left" class="col-md-8 main_left">	
+					<div class="row">
+						<!-- Single button -->
+							<div name="core" class="btn-group">
+							  <button type="button" class="btn btn-default dropdown-toggle core" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    core1 <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu">
+							    <li><a href="#">Action</a></li>
+							    <li><a href="#">Another action</a></li>
+							    <li><a href="#">Something else here</a></li>
+							    <li role="separator" class="divider"></li>
+							    <li><a href="#">Separated link</a></li>
+							  </ul>
+							</div>
+					</div>
+					<div class="row">
+						<div class="pull-left">
+							<p style="margin-left: 5px;font-size:14px;font-weight: bold;">
+								云搜索
+							</p>
+						</div>
+						<div class="pull-right">
+							<a href="javascript:void(0)" onclick="openAddDatasourceModal()" style="padding-right: 2px;">添加数据源</a>
+						</div>
+					</div>
+					<div class="row">
+						<div id="dataSources" class="list-group" style="padding-left: 5px;">
+						  <a href="#" class="list-group-item active">
+						    demo
+						  </a>
+						  <a href="#" class="list-group-item">cn_en</a>
+						  <a href="#" class="list-group-item">my shop</a>
+						  <a href="#" class="list-group-item">news</a>
+						  <a href="#" class="list-group-item">fiction</a>
+						</div>
+					</div>
+				</div>
+			</div>	
+			
+			<div class="col-md-10 data_content">
+				<!--
+                	作者：1285803721@qq.com
+                	时间：2016-03-15
+                	描述：
+                -->
+                <form id="dsConn">  
+				<div class="row">
+					  <div class="datasource-tabs">
+					    <ul id="myTab" class="nav nav-tabs" role="tablist">
+					      <li class=""><a href="#basicinfo" role="tab" data-toggle="tab">基本信息</a></li>
+					      <li class=""><a href="#dbconf" role="tab" data-toggle="tab">数据源配置</a></li>
+					      <li class="active"><a href="#tbconf" role="tab" data-toggle="tab">表映射配置</a></li>
+					    </ul>
+					    <div id="myTabContent" class="tab-content">
+					      <div class="tab-pane fade" id="basicinfo">
+					      	<div class="panel panel-default">
+							  <div class="panel-body">
+							    <div class="row">
+							    	<div class="col-md-2">
+							    		<label>数据源名称</label>
+							    	</div>
+					      			<div class="col-md-4">
+					      				<input id="dsName" name="ds[name]" class="form-control" type="text">
+					      			</div>
+					      			
+					      		</div>
+					      		<div class="row">
+					      			<div class="col-md-2">
+					      			<label>备注</label>
+					      			</div>
+					      			<div class="col-md-6">
+					      			<textarea name="ds[remark]" rows="3" style="width: 100%;"></textarea>
+					      			</div>
+					      		</div>
+							  </div>
+							</div>					      	
+					        <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+					        <ul class="pager">
+							  <li class="previous"><a href="#">&larr; 上一步</a></li>
+							  <li class="next"><a href="#">下一步 &rarr;</a></li>
+							</ul>
+					      </div>
+<!--
+	作者：1285803721@qq.com
+	时间：2016-03-15
+	描述：配置数据源链接
+-->					    
+					      <div class="tab-pane fade" id="dbconf">
+					      	<div class="panel panel-default">
+							  <div class="panel-body">
+							    <div class="container">
+							    	<div class="row">
+							    		<h5>数据库</h5>
+							    	</div>
+							    	
+					      			<div class="row">    
+					      				<div class="col-md-1">
+					      					<div class="radio">
+											<label>
+												<input name="db[type]" value="mysql" id="radio-required" data-parsley-required="true" data-parsley-multiple="radiorequired" data-parsley-id="4124" type="radio"> MySQL
+											</label>
+											</div>
+					      				</div>
+										<div class="col-md-1">
+					      					<div class="radio">
+											<label>
+												<input name="db[type]" value="sqlserver" id="radio-required" data-parsley-required="true" data-parsley-multiple="radiorequired" data-parsley-id="4124" type="radio"> Sqlserver
+											</label>
+											</div>
+					      				</div>
+					      				<div class="col-md-1">
+					      					<div class="radio">
+											<label>
+												<input name="db[type]" value="oracle" id="radio-required" data-parsley-required="true" data-parsley-multiple="radiorequired" data-parsley-id="4124" type="radio"> Oracle
+											</label>
+											</div>
+					      				</div>
+					      			</div>
+					      			<div class="row">
+							    		<h5>连接串</h5>
+							    	</div>
+							    	<div class="row">
+							    		<div class="col-md-6">
+					      					<input class="form-control" name="db[url]" type="text">
+					      				</div>
+					      				<div class="col-md-3">
+					      					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-backdrop="static">设置</button>
+					      				</div>							    		
+							    	</div>
+							    	<div class="row">
+							    		<div class="col-md-9">
+							    			<div class="row">
+							    				<h5>数据库表</h5>
+							    			</div>
+							    			<div class="row">
+								    			<div class="col-md-3">
+								    				<select class="form-control" id="tb" name="selectTb" data-parsley-required="true" data-parsley-id="1770">
+				                                        <option value="aa">茶茶</option>
+				                                        <option value="bb">叉叉</option>
+				                                        <option value="cc">查查</option>
+				                                    </select>
+								    			</div>
+					      					</div>
+					      				</div>							    		
+							    	</div>
+							    </div>
+					      		
+							  </div>
+							</div>	
+					        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+					      <ul class="pager">
+							  <li class="previous"><a href="#">&larr; 上一步</a></li>
+							  <li class="next"><a href="#">下一步 &rarr;</a></li>
+						  </ul>
+					      </div>
+					     
+<!--
+	作者：1285803721@qq.com
+	时间：2016-03-15
+	描述：配置表字段映射
+-->					      
+					      <div class="tab-pane fade active in" id="tbconf">
+					      	<div class="panel panel-default">
+							  <div class="panel-body">
+							    <div class="row">
+							    	<div class="col-md-2">
+							    		<label>数据源名称</label>
+							    	</div>
+					      			<div class="col-md-9">
+					      				<input type="text">
+					      			</div>
+					      			
+					      		</div>
+					      		<div class="row">
+					      			<div class="col-md-2">
+					      			<label>备注</label>
+					      			</div>
+					      			<div class="col-md-9">
+					      			<textarea rows="3"></textarea>
+					      			</div>
+					      		</div>
+							  </div>
+							</div>	
+					        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+					      <ul class="pager">
+							  <li class="previous"><a href="#">&larr; 上一步</a></li>
+							  <li class="next done"><a href="#">对勾完成 &rarr;</a></li>
+						  </ul>
+					      </div>					      
+					    </div>
+					  </div>
+				</div>
+				</form>
+			</div>
+		</div>
+		</div>
+		<!-- 模态框（Modal） -->
+<div class="modal fade" id="addDataSourceModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               新增数据源
+            </h4>
+         </div>
+         <div class="modal-body">
+            <div class="row">
+				<div class="col-md-4">
+					<label>数据源名称</label>
+				</div>
+				<div class="col-md-8">
+					<input id="newDsName" class="form-control" type="text" placeholder="core1">
+				</div>
+			
+			</div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="addDatasource()">
+               提交更改
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+</div>
+	</body>
+</html>

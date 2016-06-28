@@ -1,0 +1,24 @@
+.datasource-tabs {
+    margin-right: 0px;
+    margin-left: 0px;
+    background-color: #FFF;
+    border-color: #DDD;
+    border-width: 1px;
+    border-radius: 4px 4px 0px 0px;
+    box-shadow: none;
+    position: relative;
+	padding: 45px 15px 15px;
+}
+.section-block {
+	border: 1px solid #d7d7d7;
+}
+.panel-body .row {
+	padding-bottom: 8px;
+}
+li.done> span{
+	background-color: #286090;
+}
+.pager li.done > a, .pager li.done > span {
+    background-color: #286090;
+    color: white;
+}

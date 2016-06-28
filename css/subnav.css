@@ -1,0 +1,65 @@
+body{
+	background-color:#EEEEEE;
+	color: #333;
+	font-size: 12px;
+}
+div.subnav{
+	width: 100%;
+	height: 600px;
+	/*background: url(../img/sub-nav.png) no-repeat right;
+	background-origin: border;
+	backgroud-size:cover;*/
+	background-color:#985F0D;
+	overflow: hidden;
+}
+div.subnav ul{
+	width: 100%;
+	margin: 40px 0px 0px;
+	padding: 0px;
+}
+div.subnav ul li{
+	
+	list-style: outside none none;
+	height: 70px;
+	text-align: center;
+	margin: 8px 0px;
+	padding-top: 10px;
+	
+}
+div.subnav ul li.on{
+	background: #3593FF none repeat scroll 0% 0%;
+}
+div.subnav ul li a{
+	display: block;
+	color: white;
+	padding: 38px 0px 0px;
+	height: 100%;
+	font-size: 12px;
+	text-decoration: underline;
+}
+div.subnav ul li:nth-child(1) a{
+	background: url(../img/data.png) no-repeat top center;
+	
+}
+div.subnav ul li:nth-child(2) a{
+	background: url(../img/file.png) no-repeat top center;
+	
+}
+div.subnav ul li:nth-child(3) a{
+	background: url(../img/payment.png) no-repeat top center;
+	
+}
+.btn.core{
+	width: 130px;
+}
+.main_left{
+	background-color:darkgray;
+	min-height: 600px;
+}
+div.main_left .row{
+	margin-bottom: 1em;
+}
+.data_content{
+	min-height: 600px;
+	padding-left: 0;
+}
